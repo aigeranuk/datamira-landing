@@ -1,138 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="DataMira — курсы по SQL, Python и визуализации данных. Практичные занятия, менторство и подготовка к собеседованиям." />
     <title>DataMira — Курсы по аналитике данных</title>
 
-    <!-- Шрифт -->
+    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Внешний CSS -->
-    <link rel="stylesheet" href="styles.css" />
-
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Ссылка пропустить навигацию для сдк-навигаторов -->
     <a class="skip-link" href="#main">Пропустить навигацию</a>
 
-    <header class="site-header" role="banner">
-        <nav class="top-nav" aria-label="Главное меню">
-            <a class="site-logo" href="#" aria-label="DataMira — на Главную">DataMira</a>
-
-            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-                <span class="visually-hidden">Открыть меню</span>
-                ☰
-            </button>
-
-            <ul id="primary-navigation" class="nav-list" role="menubar">
-                <li role="none"><a role="menuitem" href="#team">О нас</a></li>
-                <li role="none"><a role="menuitem" href="#courses">Курсы</a></li>
-                <li role="none"><a role="menuitem" href="#reviews">Отзывы</a></li>
-                <li role="none"><a role="menuitem" href="#contact">Контакты</a></li>
+    <header class="site-header">
+        <nav class="top-nav">
+            <a class="site-logo" href="#">DataMira</a>
+            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+            <ul id="primary-navigation" class="nav-list">
+                <li><a href="#team">О нас</a></li>
+                <li><a href="#courses">Курсы</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#contact">Контакты</a></li>
             </ul>
         </nav>
 
-        <div class="hero" role="region" aria-labelledby="hero-title">
-            <h1 id="hero-title">DataMira</h1>
-            <p class="hero-sub">Курсы по SQL, Python и визуализации данных — практично и по делу.</p>
-            <p><a class="cta" href="#courses">Посмотреть курсы</a></p>
+        <div class="hero">
+            <h1>Стань экспертом в аналитике данных</h1>
+            <p>Практические курсы по SQL, Python и визуализации данных с реальными кейсами</p>
+            <a class="cta" href="#courses">Начать обучение</a>
         </div>
     </header>
 
-    <main id="main" tabindex="-1">
-        <section class="team" id="team" aria-labelledby="team-heading">
-            <h2 id="team-heading">О нас</h2>
+    <main id="main">
+        <section class="team" id="team">
+            <h2>Наша команда</h2>
             <div class="team-grid">
-                <article class="team-card" aria-labelledby="member-1-name">
-                    <h3 id="member-1-name">Айгерим Нукенова</h3>
+                <article class="team-card">
+                    <img src="https://via.placeholder.com/150" alt="Айгерим Нукенова">
+                    <h3>Айгерим Нукенова</h3>
                     <p class="role">Основательница DataMira</p>
                     <p class="company">Senior Data Analyst, Expanly.com</p>
                 </article>
-
-                <article class="team-card" aria-labelledby="member-2-name">
-                    <h3 id="member-2-name">Алина Байсал</h3>
+                <article class="team-card">
+                    <img src="https://via.placeholder.com/150" alt="Алина Байсал">
+                    <h3>Алина Байсал</h3>
                     <p class="role">Operations Manager</p>
                     <p class="company">Product Manager, bnect.pro</p>
                 </article>
-
-                <article class="team-card" aria-labelledby="member-3-name">
-                    <h3 id="member-3-name">Ернар Ерсайын</h3>
+                <article class="team-card">
+                    <img src="https://via.placeholder.com/150" alt="Ернар Ерсайын">
+                    <h3>Ернар Ерсайын</h3>
                     <p class="role">Инструктор</p>
                     <p class="company">Lead Analyst, Bereke Bank</p>
                 </article>
             </div>
         </section>
 
-        <section class="courses" id="courses" aria-labelledby="courses-heading">
-            <h2 id="courses-heading">Курсы</h2>
+        <section class="courses" id="courses">
+            <h2>Наши курсы</h2>
             <div class="course-grid">
                 <article class="course-card">
                     <h3>SQL</h3>
-                    <p>Базы данных, запросы, аналитические функции. Практика на реальных задачах.</p>
+                    <p>Базы данных, запросы, аналитические функции. Практика на реальных данных.</p>
                 </article>
-
                 <article class="course-card">
                     <h3>Python</h3>
-                    <p>Основы языка, pandas, аналитика и автоматизация рабочих процессов.</p>
+                    <p>Основы языка, pandas, аналитика и автоматизация процессов.</p>
                 </article>
-
                 <article class="course-card">
                     <h3>Визуализация данных</h3>
-                    <p>Создание профессиональных дашбордов, презентации и storytelling с данными.</p>
+                    <p>Создание профессиональных дашбордов, storytelling с данными.</p>
                 </article>
             </div>
         </section>
 
-        <section class="reviews" id="reviews" aria-labelledby="reviews-heading">
-            <h2 id="reviews-heading">Отзывы</h2>
+        <section class="reviews" id="reviews">
+            <h2>Отзывы студентов</h2>
             <ul class="reviews-list">
                 <li>
                     <blockquote>
-                        <p>«Отличные преподаватели, много практики!»</p>
-                        <cite>— Мария</cite>
-                    </blockquote>
-                </li>
-                <li>
-                    <blockquote>
-                        <p>«Помогли прокачать SQL и пройти собеседование»</p>
-                        <cite>— Алексей</cite>
-                    </blockquote>
-                </li>
-                <li>
-                    <blockquote>
-                        <p>«Очень структурированные и полезные уроки»</p>
-                        <cite>— Диана</cite>
+                        <p>«Мой ментор помог мне понять мои слабые места и дал чёткие рекомендации для поиска работы. Благодаря её поддержке я смог улучшить проекты и найти работу мечты!»</p>
+                        <cite>— Студент</cite>
                     </blockquote>
                 </li>
             </ul>
         </section>
 
-        <section class="contact" id="contact" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Контакты</h2>
-            <p>Для связи: <a href="mailto:akosechka@gmail.com">info@datamira.example</a></p>
+        <section class="contact" id="contact">
+            <h2>Контакты</h2>
+            <p>Напишите нам: <a href="mailto:akosechka@gmail.com">akosechka@gmail.com</a></p>
         </section>
     </main>
 
-    <footer class="site-footer" role="contentinfo">
-        <p>© <time datetime="2025">2025</time> DataMira — Все права защищены.</p>
+    <footer class="site-footer">
+        <p>© <time datetime="2025">2025</time> DataMira. Все права защищены.</p>
     </footer>
 
     <script>
-        // Простой доступный переключатель меню
-        (function () {
-            const btn = document.querySelector('.nav-toggle');
-            const nav = document.getElementById('primary-navigation');
-
-            if (!btn || !nav) return;
-
-            btn.addEventListener('click', () => {
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', String(!expanded));
-                nav.classList.toggle('open');
-            });
-        })();
+        const btn = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('primary-navigation');
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('open');
+        });
     </script>
 </body>
 </html>
