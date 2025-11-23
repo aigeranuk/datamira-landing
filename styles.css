@@ -199,4 +199,7 @@ cite { color: var(--muted); font-size: 0.85rem; }
 
 /* Responsive */
 @media (max-width:768px) {
-    .nav-list { display: none; flex-direction: column; position: absolute; top: 60px; ri
+    .nav-list { display: none; flex-direction: column; position: absolute; top: 60px; right: 1rem; background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+    .nav-list.open { display: flex; }
+    .nav-toggle { display: inline-block; }
+}
