@@ -454,5 +454,29 @@
             nav.classList.toggle('open');
         });
     </script>
+    <script>
+    const accordions = document.querySelectorAll('.accordion-item');
+
+    accordions.forEach(btn => {
+        btn.addEventListener('click', () => {
+
+            const content = btn.nextElementSibling;
+            const isOpen = btn.classList.contains('active');
+
+            // Закрыть все открытые аккордеоны
+            document.querySelectorAll('.accordion-item.active').forEach(openBtn => {
+                openBtn.classList.remove('active');
+                openBtn.nextElementSibling.style.maxHeight = null;
+            });
+
+            // Открыть текущий (если он не был открыт)
+            if (!isOpen) {
+                btn.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
