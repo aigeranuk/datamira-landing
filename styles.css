@@ -168,6 +168,56 @@ main { max-width: var(--max-width); margin: 0 auto; }
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.08);
 }
+/* --- ACCORDION --- */
+.accordion {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.accordion-item {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.accordion-item:hover {
+    background: linear-gradient(135deg, #6f88ff, #8655c2);
+}
+
+.accordion-item .arrow {
+    transition: transform 0.3s;
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    background: #f8f9fa;
+    padding: 0 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    border-left: 3px solid #667eea;
+    border-right: 3px solid #667eea;
+    border-bottom: 3px solid #667eea;
+}
+
+.accordion-content ul {
+    padding: 1rem 0;
+    list-style-type: disc;
+    margin-left: 1.2rem;
+}
 
 /* Reviews */
 .reviews-list {
