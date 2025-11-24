@@ -5,12 +5,283 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="DataMira — курсы по SQL, Python и визуализации данных. Практичные занятия, менторство и подготовка к собеседованиям." />
     <title>DataMira — Курсы по аналитике данных</title>
-
-    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Стили -->
-    <link rel="stylesheet" href="styles.css">
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .site-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .site-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-list a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-list a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 5% 6rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #667eea;
+            background: #e0e0e0;
+        }
+
+        .team-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .experience {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .details {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .experience-list {
+            color: #777;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            padding: 2rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .course-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .reviews-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        blockquote {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        blockquote p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        cite {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .contact {
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .contact a {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .site-footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-list {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #667eea;
+                flex-direction: column;
+                padding: 1rem;
+                display: none;
+            }
+
+            .nav-list.open {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <a class="skip-link" href="#main">Пропустить навигацию</a>
@@ -39,21 +310,26 @@
             <h2>Наша команда</h2>
             <div class="team-grid">
                 <article class="team-card">
-                    <img src="https://via.placeholder.com/150" alt="Айгерим Нукенова">
+                    <img src="images/aigerim.jpg" alt="Айгерим Нукенова" onerror="this.src='https://ui-avatars.com/api/?name=Aigerim+Nukenova&size=150&background=667eea&color=fff&bold=true'">
                     <h3>Айгерим Нукенова</h3>
                     <p class="role">Основательница DataMira</p>
-                    <p class="company">Senior Data Analyst, Expanly.com</p>
+                    <p class="company">Senior Data Analyst</p>
+                    <p class="experience">6+ лет опыта в маркетинговой и продуктовой аналитике</p>
+                    <p class="details">Работала с глобальными брендами: Nike, Puma, Novartis, Tambourine, Aviasales</p>
+                    <p class="experience-list">ex-CVM Analytics Team Lead в Beeline (Veon) • ex-Analytics Engineer в Forenom • ex-Data Analyst в Fixably, Supermetrics</p>
                 </article>
                 <article class="team-card">
-                    <img src="https://via.placeholder.com/150" alt="Алина Байсал">
+                    <img src="images/alina.jpg" alt="Алина Байсал" onerror="this.src='https://ui-avatars.com/api/?name=Alina+Baisal&size=150&background=667eea&color=fff&bold=true'">
                     <h3>Алина Байсал</h3>
-                    <p class="role">Operations Manager</p>
-                    <p class="company">Product Manager, bnect.pro</p>
+                    <p class="role">Course Curator</p>
+                    <p class="company">Product Manager, Bnect</p>
+                    <p class="experience">2,5+ года опыта работы в продуктовом менеджменте</p>
+                    <p class="experience-list">ex-PM IBEC Systems • ex-PM Weglobal.AI • ex-PM YaYa • ex-PM Freedom Soft</p>
                 </article>
                 <article class="team-card">
-                    <img src="https://via.placeholder.com/150" alt="Ернар Ерсайын">
+                    <img src="images/ernar.jpg" alt="Ернар Ерсайын" onerror="this.src='https://ui-avatars.com/api/?name=Ernar+Ersaiyn&size=150&background=667eea&color=fff&bold=true'">
                     <h3>Ернар Ерсайын</h3>
-                    <p class="role">Инструктор</p>
+                    <p class="role">Course Lecturer</p>
                     <p class="company">Lead Analyst, Bereke Bank</p>
                 </article>
             </div>
