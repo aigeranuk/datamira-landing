@@ -7,341 +7,438 @@
     <title>DataMira — Курсы по аналитике данных</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #f9faff;
+            --card: #ffffff;
+            --accent: #4f46e5;
+            --accent-hover: #6366f1;
+            --text: #111827;
+            --muted: #6b7280;
+            --radius: 16px;
+            --gap: 1.5rem;
+            --max-width: 1200px;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            color: #333;
         }
 
+        /* Skip link */
         .skip-link {
             position: absolute;
-            top: -40px;
-            left: 0;
-            background: #000;
-            color: white;
-            padding: 8px;
-            text-decoration: none;
+            left: -999px;
+            top: auto;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
+        .skip-link:focus { left: 1rem; top: 1rem; z-index: 1000; }
 
-        .skip-link:focus {
-            top: 0;
-        }
-
+        /* Header */
         .site-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #eff6ff, #f9fafb);
+            padding: 1rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
 
         .top-nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 1rem;
         }
 
         .site-logo {
-            font-size: 1.5rem;
             font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
             font-size: 1.5rem;
-            cursor: pointer;
+            color: var(--accent);
+            text-decoration: none;
         }
 
         .nav-list {
-            display: flex;
             list-style: none;
-            gap: 2rem;
+            display: flex;
+            gap: 1.5rem;
         }
 
         .nav-list a {
-            color: white;
             text-decoration: none;
-            transition: opacity 0.3s;
+            color: var(--muted);
+            font-weight: 500;
+            padding: 0.4rem 0.7rem;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .nav-list a:hover, .nav-list a:focus {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--accent);
         }
 
-        .nav-list a:hover {
-            opacity: 0.8;
+        /* Mobile nav */
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--accent);
         }
 
+        /* Hero */
         .hero {
+            max-width: var(--max-width);
+            margin: 2rem auto;
             text-align: center;
-            padding: 5rem 5% 6rem;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 3rem 1rem;
         }
 
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: var(--text);
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
         }
 
         .cta {
             display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
             font-weight: 600;
-            transition: transform 0.3s;
+            border-radius: var(--radius);
+            transition: 0.3s;
+            text-decoration: none;
         }
-
         .cta:hover {
+            background: var(--accent-hover);
             transform: translateY(-2px);
         }
 
+        /* Общие отступы между секциями */
         .section {
-            padding: 4rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 4rem 1rem 2rem 1rem;
         }
 
         .section h2 {
             text-align: center;
             font-size: 2rem;
-            margin-bottom: 3rem;
-            color: #667eea;
+            margin-bottom: 2rem;
+            color: var(--accent);
         }
 
+        /* Main sections */
+        main { max-width: var(--max-width); margin: 0 auto; }
+
+        /* Team */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--gap);
+            margin-top: 2rem;
         }
-
         .team-card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: var(--radius);
             text-align: center;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
-
         .team-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
         }
-
         .team-card img {
-            width: 150px;
-            height: 150px;
             border-radius: 50%;
-            object-fit: cover;
+            width: 120px;
+            height: 120px;
             margin-bottom: 1rem;
-            border: 4px solid #667eea;
+            object-fit: cover;
             background: #e0e0e0;
         }
-
         .team-card h3 {
-            font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: var(--text);
         }
-
         .role {
-            color: #667eea;
+            color: var(--accent);
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
-
         .company {
-            color: #333;
+            color: var(--text);
             font-weight: 500;
             margin-bottom: 0.8rem;
             font-size: 0.95rem;
         }
-
         .experience {
             color: #555;
             font-size: 0.9rem;
             margin-bottom: 0.8rem;
             font-weight: 500;
         }
-
         .details {
             color: #666;
             font-size: 0.85rem;
             margin-bottom: 0.8rem;
             line-height: 1.5;
         }
-
         .experience-list {
             color: #777;
             font-size: 0.8rem;
             line-height: 1.6;
         }
 
+        /* Courses */
         .course-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: var(--gap);
+            margin-top: 2rem;
         }
-
         .course-card {
+            background: var(--card);
             padding: 2rem;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: all 0.3s;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            text-align: left;
         }
-
         .course-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
         }
-
-        .course-card h3 {
-            color: #667eea;
+        .course-card > h3 {
+            color: var(--accent);
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-
-        .reviews-list {
-            list-style: none;
-            max-width: 800px;
-            margin: 0 auto;
+        .course-card > p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
         }
 
-        blockquote {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-left: 4px solid #667eea;
-            border-radius: 5px;
+        /* --- ACCORDION --- */
+        .accordion {
+            margin-top: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        blockquote p {
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        cite {
+        .accordion-item {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 1.2rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            color: #667eea;
+            border: none;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
         }
 
+        .accordion-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .accordion-item:hover {
+            background: linear-gradient(135deg, #6f88ff, #8655c2);
+            padding-left: 1.5rem;
+        }
+
+        .accordion-item .arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 0.5rem;
+        }
+
+        .accordion-item.active {
+            background: linear-gradient(135deg, #5a6ed8, #6a3f8f);
+        }
+
+        .accordion-item.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            background: #f8f9fa;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            border-left: 3px solid #667eea;
+            border-right: 3px solid #667eea;
+        }
+
+        .accordion-content.open {
+            padding: 1.2rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .accordion-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            color: #555;
+        }
+
+        .accordion-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Reviews */
+        .reviews-list {
+            margin-top: 2rem;
+            display: grid;
+            gap: 1rem;
+            list-style: none;
+        }
+        blockquote {
+            padding: 1.5rem 1.5rem;
+            background: #ffffff;
+            border-left: 5px solid var(--accent);
+            border-radius: var(--radius);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+        blockquote p {
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            color: var(--text);
+        }
+        cite {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* Contact */
         .contact {
             text-align: center;
             background: #f8f9fa;
+            padding: 4rem 1rem;
+            border-radius: var(--radius);
         }
-
         .contact a {
-            color: #667eea;
+            color: var(--accent);
+            text-decoration: none;
             font-weight: 600;
         }
+        .contact a:hover { text-decoration: underline; }
 
+        /* Footer */
         .site-footer {
-            background: #333;
-            color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 1rem;
+            color: var(--muted);
+            background: #f8f9fa;
+            margin-top: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-
+        /* Responsive */
+        @media (max-width:768px) {
             .nav-list {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #667eea;
-                flex-direction: column;
-                padding: 1rem;
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 1rem;
+                background: #fff;
+                padding: 1rem;
+                border-radius: 12px;
+                box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+                z-index: 100;
             }
-
-            .nav-list.open {
-                display: flex;
-            }
+            .nav-list.open { display: flex; }
+            .nav-toggle { display: inline-block; }
 
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <a class="skip-link" href="#main">Пропустить навигацию</a>
+<a class="skip-link" href="#main">Пропустить навигацию</a>
 
-    <header class="site-header">
-        <nav class="top-nav">
-            <a class="site-logo" href="#">DataMira</a>
-            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">☰</button>
-            <ul id="primary-navigation" class="nav-list">
-                <li><a href="#team">О нас</a></li>
-                <li><a href="#courses">Курсы</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
+<header class="site-header">
+    <nav class="top-nav">
+        <a class="site-logo" href="#">DataMira</a>
+        <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+        <ul id="primary-navigation" class="nav-list">
+            <li><a href="#team">О нас</a></li>
+            <li><a href="#courses">Курсы</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
 
-        <div class="hero">
-            <h1>Стань экспертом в аналитике данных</h1>
-            <p>Практические курсы по SQL, Python и визуализации данных с реальными кейсами</p>
-            <a class="cta" href="#courses">Начать обучение</a>
+    <div class="hero">
+        <h1>Стань экспертом в аналитике данных</h1>
+        <p>Практические курсы по SQL, Python и визуализации данных с реальными кейсами</p>
+        <a class="cta" href="#courses">Начать обучение</a>
+    </div>
+</header>
+
+<main id="main">
+    <section class="team section" id="team">
+        <h2>Наша команда</h2>
+        <div class="team-grid">
+            <article class="team-card">
+                <img src="images/aigerim.jpg" alt="Айгерим Нукенова" onerror="this.src='https://ui-avatars.com/api/?name=Aigerim+Nukenova&size=150&background=667eea&color=fff&bold=true'">
+                <h3>Aigerim Nukenova</h3>
+                <p class="role">DataMira Founder</p>
+                <p class="company">Senior Data Analyst, Expanly</p>
+                <p class="experience">7 лет опыта в маркетинговой и продуктовой аналитике</p>
+                <p class="details">Работала с глобальными брендами: Nike, Puma, Novartis, Tambourine, Aviasales</p>
+                <p class="experience-list">ex-CVM Analytics Team Lead в Beeline (Veon) • ex-Analytics Engineer в Forenom • ex-Data Analyst в Fixably, Supermetrics</p>
+            </article>
+            <article class="team-card">
+                <img src="images/alina.jpg" alt="Алина Байсал" onerror="this.src='https://ui-avatars.com/api/?name=Alina+Baisal&size=150&background=667eea&color=fff&bold=true'">
+                <h3>Alina Baisal</h3>
+                <p class="role">Operations Manager & Course Curator</p>
+                <p class="company">Product Manager, Bnect</p>
+                <p class="experience">3 года опыта работы в продуктовом менеджменте</p>
+                <p class="experience-list">ex-PM IBEC Systems • ex-PM Weglobal.AI • ex-PM YaYa • ex-PM Freedom Soft</p>
+            </article>
+            <article class="team-card">
+                <img src="images/ernar.jpg" alt="Ернар Ерсайын" onerror="this.src='https://ui-avatars.com/api/?name=Ernar+Ersaiyn&size=150&background=667eea&color=fff&bold=true'">
+                <h3>Yernar Yersaiyn</h3>
+                <p class="role">Senior Course Lecturer</p>
+                <p class="company">Lead Analyst, Bereke Bank</p>
+            </article>
         </div>
-    </header>
+    </section>
 
-    <main id="main">
-        <section class="team section" id="team">
-            <h2>Наша команда</h2>
-            <div class="team-grid">
-                <article class="team-card">
-                    <img src="images/aigerim.jpg" alt="Айгерим Нукенова" onerror="this.src='https://ui-avatars.com/api/?name=Aigerim+Nukenova&size=150&background=667eea&color=fff&bold=true'">
-                    <h3>Aigerim Nukenova</h3>
-                    <p class="role">DataMira Founder</p>
-                    <p class="company">Senior Data Analyst, Expanly</p>
-                    <p class="experience">7 лет опыта в маркетинговой и продуктовой аналитике</p>
-                    <p class="details">Работала с глобальными брендами: Nike, Puma, Novartis, Tambourine, Aviasales</p>
-                    <p class="experience-list">ex-CVM Analytics Team Lead в Beeline (Veon) • ex-Analytics Engineer в Forenom • ex-Data Analyst в Fixably, Supermetrics</p>
-                </article>
-                <article class="team-card">
-                    <img src="images/alina.jpg" alt="Алина Байсал" onerror="this.src='https://ui-avatars.com/api/?name=Alina+Baisal&size=150&background=667eea&color=fff&bold=true'">
-                    <h3>Alina Baisal</h3>
-                    <p class="role">Operations Manager & Course Curator</p>
-                    <p class="company">Product Manager, Bnect</p>
-                    <p class="experience">3 года опыта работы в продуктовом менеджменте</p>
-                    <p class="experience-list">ex-PM IBEC Systems • ex-PM Weglobal.AI • ex-PM YaYa • ex-PM Freedom Soft</p>
-                </article>
-                <article class="team-card">
-                    <img src="images/ernar.jpg" alt="Ернар Ерсайын" onerror="this.src='https://ui-avatars.com/api/?name=Ernar+Ersaiyn&size=150&background=667eea&color=fff&bold=true'">
-                    <h3>Yernar Yersaiyn</h3>
-                    <p class="role">Senior Course Lecturer</p>
-                    <p class="company">Lead Analyst, Bereke Bank</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="courses section" id="courses">
-            <h2>Наши курсы</h2>
-            <div class="course-grid">
-                <article class="course-card">
-                    <h3>SQL</h3>
-                    <p>Базы данных, запросы, аналитические функции. Практика на реальных данных.</p>
-                    <div class="accordion">
+    <section class="courses section" id="courses">
+        <h2>Наши курсы</h2>
+        <div class="course-grid">
+            <article class="course-card">
+                <h3>SQL</h3>
+                <p>Базы данных, запросы, аналитические функции. Практика на реальных данных.</p>
+                <div class="accordion">
                     <button class="accordion-item">
                         <span>Лекция 1 — Чем занимается аналитик данных?</span>
                         <span class="arrow">▼</span>
@@ -357,7 +454,7 @@
                             <li>Ограничения в базах данных</li>
                         </ul>
                     </div>
-                
+
                     <button class="accordion-item">
                         <span>Лекция 2 — База работы с SQL</span>
                         <span class="arrow">▼</span>
@@ -368,7 +465,7 @@
                             <li>Задачи уровня собеседований (реальные кейсы)</li>
                         </ul>
                     </div>
-                
+
                     <button class="accordion-item">
                         <span>Лекция 3 — Усложнённые SQL-запросы</span>
                         <span class="arrow">▼</span>
@@ -381,7 +478,7 @@
                             <li>Оконные функции</li>
                         </ul>
                     </div>
-                
+
                     <button class="accordion-item">
                         <span>Лекция 4 — Основы дизайна дашбордов</span>
                         <span class="arrow">▼</span>
@@ -389,7 +486,7 @@
                     <div class="accordion-content">
                         Основы работы с Looker Studio
                     </div>
-                
+
                     <button class="accordion-item">
                         <span>Лекция 6 — Дашборды часть 2</span>
                         <span class="arrow">▼</span>
@@ -397,7 +494,7 @@
                     <div class="accordion-content">
                         Презентация своих дашбордов с обратной связью от ментора
                     </div>
-                
+
                     <button class="accordion-item">
                         <span>Лекция 7 — Подготовка к работе</span>
                         <span class="arrow">▼</span>
@@ -410,73 +507,76 @@
                         </ul>
                     </div>
                 </div>
+            </article>
 
-                </article>
-                <article class="course-card">
-                    <h3>Python</h3>
-                    <p>Основы языка, pandas, аналитика и автоматизация процессов.</p>
-                </article>
-                <article class="course-card">
-                    <h3>Визуализация данных</h3>
-                    <p>Создание профессиональных дашбордов, storytelling с данными.</p>
-                </article>
-            </div>
-        </section>
+            <article class="course-card">
+                <h3>Python</h3>
+                <p>Основы языка, pandas, аналитика и автоматизация процессов.</p>
+            </article>
 
-        <section class="reviews section" id="reviews">
-            <h2>Отзывы студентов</h2>
-            <ul class="reviews-list">
-                <li>
-                    <blockquote>
-                        <p>«Мой ментор помог мне понять мои слабые места и дал чёткие рекомендации для поиска работы. Благодаря её поддержке я смог улучшить проекты и найти работу мечты!»</p>
-                        <cite>— Студент</cite>
-                    </blockquote>
-                </li>
-            </ul>
-        </section>
+            <article class="course-card">
+                <h3>Визуализация данных</h3>
+                <p>Создание профессиональных дашбордов, storytelling с данными.</p>
+            </article>
+        </div>
+    </section>
 
-        <section class="contact section" id="contact">
-            <h2>Контакты</h2>
-            <p>Напишите нам в Telegram: <a href="https://t.me/aya_nuk_kz" target="_blank">t.me/aya_nuk_kz</a></p>
-        </section>
-    </main>
+    <section class="reviews section" id="reviews">
+        <h2>Отзывы студентов</h2>
+        <ul class="reviews-list">
+            <li>
+                <blockquote>
+                    <p>«Мой ментор помог мне понять мои слабые места и дал чёткие рекомендации для поиска работы. Благодаря её поддержке я смог улучшить проекты и найти работу мечты!»</p>
+                    <cite>— Студент</cite>
+                </blockquote>
+            </li>
+        </ul>
+    </section>
 
-    <footer class="site-footer">
-        <p>© <time datetime="2025">2025</time> DataMira. Все права защищены.</p>
-    </footer>
+    <section class="contact section" id="contact">
+        <h2>Контакты</h2>
+        <p>Напишите нам в Telegram: <a href="https://t.me/aya_nuk_kz" target="_blank">t.me/aya_nuk_kz</a></p>
+    </section>
+</main>
 
-    <script>
-        const btn = document.querySelector('.nav-toggle');
-        const nav = document.getElementById('primary-navigation');
-        btn.addEventListener('click', () => {
-            const expanded = btn.getAttribute('aria-expanded') === 'true';
-            btn.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
-        });
-    </script>
-    <script>
+<footer class="site-footer">
+    <p>© <time datetime="2025">2025</time> DataMira. Все права защищены.</p>
+</footer>
+
+<script>
+    // Mobile navigation toggle
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-navigation');
+    btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+    });
+
+    // Accordion functionality
     const accordions = document.querySelectorAll('.accordion-item');
 
     accordions.forEach(btn => {
         btn.addEventListener('click', () => {
-
             const content = btn.nextElementSibling;
             const isOpen = btn.classList.contains('active');
 
-            // Закрыть все открытые аккордеоны
+            // Close all open accordions
             document.querySelectorAll('.accordion-item.active').forEach(openBtn => {
                 openBtn.classList.remove('active');
-                openBtn.nextElementSibling.style.maxHeight = null;
+                const openContent = openBtn.nextElementSibling;
+                openContent.style.maxHeight = null;
+                openContent.classList.remove('open');
             });
 
-            // Открыть текущий (если он не был открыт)
+            // Open current accordion (if it wasn't already open)
             if (!isOpen) {
                 btn.classList.add('active');
+                content.classList.add('open');
                 content.style.maxHeight = content.scrollHeight + "px";
             }
         });
     });
 </script>
-
 </body>
 </html>
