@@ -757,6 +757,35 @@
             margin: 0 auto;
         }
 
+        .google-form-container {
+            background: white;
+            border-radius: 16px;
+            padding: 0;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            min-height: 1200px;
+            position: relative;
+        }
+
+        .google-form-container iframe {
+            border-radius: 12px;
+            max-width: 100%;
+            display: block;
+        }
+
+        .google-form-container::before {
+            content: 'Загрузка формы...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 1.2rem;
+            z-index: 0;
+        }
+
         .form-group {
             margin-bottom: 1.5rem;
             text-align: left;
@@ -962,6 +991,15 @@
 
             .cta-title {
                 font-size: 2rem;
+            }
+
+            .google-form-container {
+                padding: 0;
+                min-height: 1000px;
+            }
+
+            .google-form-container iframe {
+                height: 1400px;
             }
         }
 
@@ -1410,28 +1448,13 @@
     <section class="cta-section" id="contact">
         <div class="cta-content">
             <h2 class="cta-title">Оставить заявку</h2>
-            <p class="cta-description">Заполните форму и мы свяжемся с вами</p>
+            <p class="cta-description">Нажмите на кнопку ниже, чтобы заполнить форму регистрации</p>
             
-            <form class="cta-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label class="form-label">Ваше имя</label>
-                    <input type="text" class="form-input" placeholder="Введите имя" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Телефон</label>
-                    <input type="tel" class="form-input" placeholder="+7 (__) __-__-__" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-input" placeholder="example@mail.ru" required>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">
-                    Отправить заявку
-                </button>
-                <p class="form-note">
-                    Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
-                </p>
-            </form>
+            <div style="margin-top: 2.5rem; text-align: center;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSkRx4A8PNt2zHvo54SX4EvEBK_phnF_TPuF1kzPbsLnGeKw/viewform" target="_blank" class="btn-primary" style="display: inline-flex; text-decoration: none; font-size: 1.1rem;">
+                    Открыть форму регистрации →
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1484,12 +1507,6 @@
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('open');
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время.');
-            event.target.reset();
         }
 
         // Program item toggle functionality
