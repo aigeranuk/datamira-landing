@@ -74,6 +74,12 @@
             font-size: 1.2rem;
         }
 
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
@@ -336,12 +342,18 @@
             gap: 2rem;
             transition: all 0.3s;
             cursor: pointer;
+            flex-wrap: wrap;
         }
 
         .program-item:hover {
             border-color: var(--primary-green);
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transform: translateY(-2px);
+        }
+
+        .program-item.active {
+            border-color: var(--primary-green);
+            background: rgba(16, 185, 129, 0.02);
         }
 
         .program-number {
@@ -376,7 +388,70 @@
 
         .program-item:hover .program-arrow {
             color: var(--primary-green);
-            transform: translateX(5px);
+        }
+
+        .program-item.active .program-arrow {
+            transform: rotate(90deg);
+            color: var(--primary-green);
+        }
+
+        .program-details {
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-top: 0;
+        }
+
+        .program-details.active {
+            max-height: 2000px;
+            margin-top: 1.5rem;
+        }
+
+        .program-details-content {
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .lecture-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lecture-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .lecture-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .lecture-topics {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .lecture-topics li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .lecture-topics li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
         }
 
         /* Target Audience Section */
@@ -761,6 +836,12 @@
             font-size: 1.2rem;
         }
 
+        .footer-logo svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
         .footer-brand-name {
             font-size: 1.5rem;
             font-weight: 700;
@@ -865,6 +946,10 @@
                 min-width: auto;
             }
 
+            .lecture-topics li {
+                font-size: 0.9rem;
+            }
+
             .audience-grid,
             .benefits-grid,
             .team-grid {
@@ -896,7 +981,11 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">📊</div>
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M3 13h2v8H3v-8zm4-6h2v14H7V7zm4-4h2v18h-2V3zm4 9h2v9h-2v-9zm4-3h2v12h-2V9z"/>
+                    </svg>
+                </div>
                 <span>DataMira</span>
             </a>
             <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
@@ -943,12 +1032,12 @@
             </div>
             <div class="stat-item">
                 <div class="stat-icon">💰</div>
-                <div class="stat-number">120K ₽</div>
+                <div class="stat-number">800K ₸</div>
                 <div class="stat-label">средняя зарплата выпускника</div>
             </div>
             <div class="stat-item">
                 <div class="stat-icon">🎓</div>
-                <div class="stat-number">2500+</div>
+                <div class="stat-number">10+</div>
                 <div class="stat-label">успешных выпускников</div>
             </div>
         </div>
@@ -963,53 +1052,150 @@
                 <p class="section-subtitle">6 модулей, 8 недель интенсивного обучения</p>
             </div>
             <div class="program-grid">
-                <div class="program-item">
+                <div class="program-item" >
                     <div class="program-number">01</div>
                     <div class="program-content">
                         <div class="program-title">Знакомство с аналитикой данных</div>
                         <div class="program-duration">1 неделя</div>
                     </div>
                     <div class="program-arrow">→</div>
+                    <div class="program-details">
+                        <div class="program-details-content">
+                            <div class="lecture-item">
+                                <div class="lecture-title">Лекция 1 — Чем занимается аналитик данных?</div>
+                                <ul class="lecture-topics">
+                                    <li>Навыки и рыночные зарплаты</li>
+                                    <li>Основные понятия в теории баз данных</li>
+                                    <li>Типы связей</li>
+                                    <li>Типы баз данных</li>
+                                    <li>OLTP vs OLAP</li>
+                                    <li>Реляционные и нереляционные</li>
+                                    <li>Ограничения в базах данных</li>
+                                </ul>
+                            </div>
+                            <div class="lecture-item">
+                                <div class="lecture-title">Разбор домашки и офисные часы 1</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="program-item">
+                <div class="program-item" >
                     <div class="program-number">02</div>
                     <div class="program-content">
                         <div class="program-title">Основы SQL</div>
                         <div class="program-duration">1 неделя</div>
                     </div>
                     <div class="program-arrow">→</div>
+                    <div class="program-details">
+                        <div class="program-details-content">
+                            <div class="lecture-item">
+                                <div class="lecture-title">Лекция 2 — База работы с SQL</div>
+                                <ul class="lecture-topics">
+                                    <li>Основы SQL: SELECT, WHERE, GROUP BY, агрегатные функции</li>
+                                    <li>Задачи уровня собеседований (с примерами из реальных кейсов компаний)</li>
+                                </ul>
+                            </div>
+                            <div class="lecture-item">
+                                <div class="lecture-title">Разбор домашки и офисные часы 2</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="program-item">
+                <div class="program-item" >
                     <div class="program-number">03</div>
                     <div class="program-content">
                         <div class="program-title">Продвинутый SQL</div>
                         <div class="program-duration">1 неделя</div>
                     </div>
                     <div class="program-arrow">→</div>
+                    <div class="program-details">
+                        <div class="program-details-content">
+                            <div class="lecture-item">
+                                <div class="lecture-title">Лекция 3 — Усложнённые SQL-запросы</div>
+                                <ul class="lecture-topics">
+                                    <li>JOINs</li>
+                                    <li>UNION и UNION ALL</li>
+                                    <li>CTE и подзапросы</li>
+                                    <li>Оконные функции</li>
+                                </ul>
+                            </div>
+                            <div class="lecture-item">
+                                <div class="lecture-title">Разбор домашки и офисные часы 3</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="program-item">
+                <div class="program-item" >
                     <div class="program-number">04</div>
                     <div class="program-content">
                         <div class="program-title">Основы визуализации на PowerBI</div>
                         <div class="program-duration">2 недели</div>
                     </div>
                     <div class="program-arrow">→</div>
+                    <div class="program-details">
+                        <div class="program-details-content">
+                            <div class="lecture-item">
+                                <div class="lecture-title">Лекция 4 — Основы дизайна информативных дэшбордов</div>
+                                <ul class="lecture-topics">
+                                    <li>Основы работы с Looker Studio (ex-Google Data Studio)</li>
+                                </ul>
+                            </div>
+                            <div class="lecture-item">
+                                <div class="lecture-title">Разбор домашки и офисные часы 4</div>
+                            </div>
+                            <div class="lecture-item">
+                                <div class="lecture-title">Лекция 6 — Дашборды и визуализация часть 2</div>
+                                <ul class="lecture-topics">
+                                    <li>Презентация своих дашбордов с обратной связью от ментора</li>
+                                </ul>
+                            </div>
+                            <div class="lecture-item">
+                                <div class="lecture-title">Разбор домашки и офисные часы 5</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="program-item">
+                <div class="program-item" >
                     <div class="program-number">05</div>
                     <div class="program-content">
                         <div class="program-title">Основы EDA на Python</div>
                         <div class="program-duration">2 недели</div>
                     </div>
                     <div class="program-arrow">→</div>
+                    <div class="program-details">
+                        <div class="program-details-content">
+                            <div class="lecture-item">
+                                <div class="lecture-title">Exploratory Data Analysis с Python</div>
+                                <ul class="lecture-topics">
+                                    <li>Основы Python для анализа данных</li>
+                                    <li>Библиотека Pandas</li>
+                                    <li>Визуализация данных</li>
+                                    <li>Статистический анализ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="program-item">
+                <div class="program-item" >
                     <div class="program-number">06</div>
                     <div class="program-content">
                         <div class="program-title">Подготовка к карьере</div>
                         <div class="program-duration">1 неделя</div>
                     </div>
                     <div class="program-arrow">→</div>
+                    <div class="program-details">
+                        <div class="program-details-content">
+                            <div class="lecture-item">
+                                <div class="lecture-title">Лекция 7 — Подготовка к работе</div>
+                                <ul class="lecture-topics">
+                                    <li>Лайфхаки по поиску работы</li>
+                                    <li>Составление резюме</li>
+                                    <li>LinkedIn</li>
+                                    <li>Прожарка резюме с Алиной</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1200,7 +1386,7 @@
                     <div class="review-header">
                         <div>
                             <div class="review-author">Temirlan Zhunusbekov</div>
-                            <div class="review-cohort">Поток июль 2025</div>
+                            <div class="review-cohort">Поток июль 2024</div>
                         </div>
                     </div>
                     <p class="review-text">
@@ -1254,7 +1440,11 @@
         <div class="footer-container">
             <div>
                 <div class="footer-brand">
-                    <div class="footer-logo">📊</div>
+                    <div class="footer-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 13h2v8H3v-8zm4-6h2v14H7V7zm4-4h2v18h-2V3zm4 9h2v9h-2v-9zm4-3h2v12h-2V9z"/>
+                        </svg>
+                    </div>
                     <div class="footer-brand-name">DataMira</div>
                 </div>
                 <p class="footer-description">
@@ -1265,6 +1455,9 @@
                 <h4 class="footer-title">Курсы</h4>
                 <ul class="footer-links">
                     <li><a href="#">Аналитик данных</a></li>
+                    <li><a href="#">SQL с нуля</a></li>
+                    <li><a href="#">Python для анализа</a></li>
+                    <li><a href="#">Power BI</a></li>
                 </ul>
             </div>
             <div>
@@ -1273,6 +1466,12 @@
                     <li><a href="tel:88001234567">8 800 123-45-67</a></li>
                     <li><a href="/cdn-cgi/l/email-protection#375e59515877535643565a5e4556194542"><span class="__cf_email__" data-cfemail="ff96919990bf9b9e8b9e92968d9ed18d8a">[email&#160;protected]</span></a></li>
                     <li><a href="https://t.me/aya_nuk_kz" target="_blank">Telegram</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Адрес</h4>
+                <ul class="footer-links">
+                    <li>Москва, ул. Тверская, 1</li>
                 </ul>
             </div>
         </div>
@@ -1292,6 +1491,35 @@
             alert('Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время.');
             event.target.reset();
         }
+
+        // Program item toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const programItems = document.querySelectorAll('.program-item');
+            
+            programItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const details = this.querySelector('.program-details');
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other program items
+                    programItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        const otherDetails = otherItem.querySelector('.program-details');
+                        if (otherDetails) {
+                            otherDetails.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        this.classList.add('active');
+                        if (details) {
+                            details.classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
