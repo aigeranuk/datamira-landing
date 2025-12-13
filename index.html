@@ -748,6 +748,72 @@
             margin: 0 auto;
         }
 
+        /* Video Reviews Section */
+        .video-reviews {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .video-reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-review-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .video-review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-review-info {
+            padding: 1.5rem;
+        }
+
+        .video-review-author {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .video-review-role {
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .video-review-company {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
         .review-card {
             background: white;
             padding: 2.5rem;
@@ -1088,6 +1154,10 @@
             .audience-grid,
             .benefits-grid,
             .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-reviews-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1530,7 +1600,7 @@
                     <div class="review-header">
                         <div>
                             <div class="review-author">Temirlan Zhunusbekov</div>
-                            <div class="review-cohort">Поток июль 2025</div>
+                            <div class="review-cohort">Поток июль 2024</div>
                         </div>
                     </div>
                     <p class="review-text">
@@ -1543,8 +1613,37 @@
                         Отдельно хочу отметить наше тестовое техническое интервью: оно прошло в максимально рабочем формате, с разбором ошибок и конструктивной обратной связью.
                     </p>
                     <p class="review-text">
-                        Благодаря менторству, я наконец-то спустя долгое время начал предпринимать верные шаги в поиске работы и <span class="review-highlight">наконец нашёл работу своей мечты</span> :)
+                        Благодаря Айгерим, я наконец-то спустя долгое время начал предпринимать верные шаги в поиске работы и <span class="review-highlight">наконец нашёл работу своей мечты</span> :)
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Reviews Section -->
+    <section class="section video-reviews">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">ВИДЕО-ОТЗЫВЫ</div>
+                <h2 class="section-title">Истории наших выпускников</h2>
+                <p class="section-subtitle">Послушайте, что говорят те, кто уже прошёл обучение</p>
+            </div>
+            <div class="video-reviews-grid">
+                <div class="video-review-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/-X2j_tZcxAc?rel=0&modestbranding=1" 
+                                width="640" 
+                                height="480" 
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="video-review-info">
+                        <div class="video-review-author">Нурсулу Аралбекова</div>
+                        <div class="video-review-role">Business Analyst</div>
+                        <div class="video-review-company">Inkar Team</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1582,6 +1681,7 @@
                         <li>Работа с базами данных</li>
                         <li>Визуализация данных</li>
                         <li>Создание дашбордов</li>
+                        <li>A/B тестирование</li>
                     </ul>
                 </div>
 
@@ -1633,6 +1733,12 @@
                     <li><a href="tel:88001234567">8 800 123-45-67</a></li>
                     <li><a href="/cdn-cgi/l/email-protection#375e59515877535643565a5e4556194542"><span class="__cf_email__" data-cfemail="ff96919990bf9b9e8b9e92968d9ed18d8a">[email&#160;protected]</span></a></li>
                     <li><a href="https://t.me/aya_nuk_kz" target="_blank">Telegram</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Адрес</h4>
+                <ul class="footer-links">
+                    <li>Москва, ул. Тверская, 1</li>
                 </ul>
             </div>
         </div>
