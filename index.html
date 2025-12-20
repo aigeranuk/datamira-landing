@@ -570,8 +570,8 @@
         /* Team Section */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
         }
 
         .team-card {
@@ -1079,6 +1079,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1561,6 +1567,7 @@
             </div>
             <div class="team-grid">
                 <div class="team-card">
+                    <img src="images/Aigerim.jpeg" alt="Aigerim Nukenova" class="team-avatar">
                     <h3 class="team-name">Aigerim Nukenova</h3>
                     <p class="team-role">DataMira Founder</p>
                     <p class="team-company">Senior Data Analyst, Expanly</p>
@@ -1573,6 +1580,7 @@
                     </p>
                 </div>
                 <div class="team-card">
+                    <img src="images/Yernar.jpg" alt="Yernar Yersaiyn" class="team-avatar">
                     <h3 class="team-name">Yernar Yersaiyn</h3>
                     <p class="team-role">Senior Data Analyst</p>
                     <p class="team-company">Bereke Bank</p>
@@ -1585,6 +1593,7 @@
                     </p>
                 </div>
                 <div class="team-card">
+                    <img src="images/Bigaisha.jpg" alt="Bigaisha Nurberdiyeva" class="team-avatar">
                     <h3 class="team-name">Bigaisha Nurberdiyeva</h3>
                     <p class="team-role">Middle BI Engineer</p>
                     <p class="team-company">KMF банк</p>
@@ -1596,6 +1605,7 @@
                     </p>
                 </div>
                 <div class="team-card">
+                  <img src="images/Alina.jpeg" alt="Alina Baisal" class="team-avatar">
                   <h3 class="team-name">Alina Baisal</h3>
                     <p class="team-role">Course Curator</p>
                     <p class="team-company">Bnect</p>
