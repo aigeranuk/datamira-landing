@@ -578,9 +578,13 @@
             background: white;
             border: 2px solid var(--border-color);
             border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
+            padding: 2rem;
+            text-align: left;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .team-card:hover {
@@ -590,12 +594,17 @@
         }
 
         .team-avatar {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            margin: 0 auto 1.5rem;
             object-fit: cover;
-            border: 4px solid var(--primary-green);
+            border: 3px solid var(--primary-green);
+            flex-shrink: 0;
+        }
+
+        .team-info {
+            flex: 1;
+            text-align: center;
         }
 
         .team-name {
@@ -1567,59 +1576,67 @@
             </div>
             <div class="team-grid">
                 <div class="team-card">
-                    <img src="images/Aigerim.jpeg" alt="Aigerim Nukenova" class="team-avatar">
-                    <h3 class="team-name">Aigerim Nukenova</h3>
-                    <p class="team-role">DataMira Founder</p>
-                    <p class="team-company">Senior Data Analyst, Expanly</p>
-                    <p class="team-experience">7 лет опыта в маркетинговой и продуктовой аналитике.</p>
-                    <p class="team-details">
-                        • Специализация: Продуктовая и маркетинговая аналитика, работа с большими данными и BI <br>
-                        • Работала с глобальными брендами: Nike, Puma, Novartis, Tambourine, Aviasales <br>
-                        • Инструменты и навыки: SQL, PySpark, BigQuery, Power BI, Snowflake, dbt, Looker Studio, Git <br>
-                        • Опыт работы в ведущих SaaS стартапах Финляндии (Supermetrics, Fixably, Expanly) и в Veon group<br>
-                    </p>
+                    <img src="Aigerim.jpeg" alt="Aigerim Nukenova" class="team-avatar">
+                    <div class="team-info">
+                        <h3 class="team-name">Aigerim Nukenova</h3>
+                        <p class="team-role">DataMira Founder</p>
+                        <p class="team-company">Senior Data Analyst, Expanly</p>
+                        <p class="team-experience">7 лет опыта в маркетинговой и продуктовой аналитике.</p>
+                        <p class="team-details">
+                            • Специализация: Продуктовая и маркетинговая аналитика, работа с большими данными и BI <br>
+                            • Работала с глобальными брендами: Nike, Puma, Novartis, Tambourine, Aviasales <br>
+                            • Инструменты и навыки: SQL, PySpark, BigQuery, Power BI, Snowflake, dbt, Looker Studio, Git <br>
+                            • Опыт работы в ведущих SaaS стартапах Финляндии (Supermetrics, Fixably, Expanly) и в Veon group<br>
+                        </p>
+                    </div>
                 </div>
                 <div class="team-card">
-                    <img src="images/Yernar.jpg" alt="Yernar Yersaiyn" class="team-avatar">
-                    <h3 class="team-name">Yernar Yersaiyn</h3>
-                    <p class="team-role">Senior Data Analyst</p>
-                    <p class="team-company">Bereke Bank</p>
-                    <p class="team-experience">Более 3 лет опыта в аналитике данных в финансовом секторе</p>
-                    <p class="team-details">
-                        • Специализация: антифрод-аналитика, операционные и аудиторские проверки, автоматизация аналитических процессов<br>
-                        • Работал в ведущих банках Казахстана: Kaspi Bank, KMF, Freedom Bank, Bereke Bank<br>
-                        • Прошел путь от Junior Data Analyst до Главного аналитика данных отдела Цифрового аудита<br>
-                        • Инструменты: SQL (Oracle, PostgreSQL, MS SQL), Python, Power BI, Tableau, Grafana, Splunk, Power Query
-                    </p>
+                    <img src="Yernar.jpg" alt="Yernar Yersaiyn" class="team-avatar">
+                    <div class="team-info">
+                        <h3 class="team-name">Yernar Yersaiyn</h3>
+                        <p class="team-role">Senior Data Analyst</p>
+                        <p class="team-company">Bereke Bank</p>
+                        <p class="team-experience">Более 3 лет опыта в аналитике данных в финансовом секторе</p>
+                        <p class="team-details">
+                            • Специализация: антифрод-аналитика, операционные и аудиторские проверки, автоматизация аналитических процессов<br>
+                            • Работал в ведущих банках Казахстана: Kaspi Bank, KMF, Freedom Bank, Bereke Bank<br>
+                            • Прошел путь от Junior Data Analyst до Главного аналитика данных отдела Цифрового аудита<br>
+                            • Инструменты: SQL (Oracle, PostgreSQL, MS SQL), Python, Power BI, Tableau, Grafana, Splunk, Power Query
+                        </p>
+                    </div>
                 </div>
                 <div class="team-card">
-                    <img src="images/Bigaisha.jpg" alt="Bigaisha Nurberdiyeva" class="team-avatar">
-                    <h3 class="team-name">Bigaisha Nurberdiyeva</h3>
-                    <p class="team-role">Middle BI Engineer</p>
-                    <p class="team-company">KMF банк</p>
-                    <p class="team-experience">4+ года в аналитике данных</p>
-                    <p class="team-details">
-                        • Специализация: BI Engineering, BI Analytics, Аналитика данных, Эд-хок анализ, Автоматизация и визуализация данных для data-driven подхода<br>
-                        • Опыт работы: SmartFinance МФО, Beeline, qazQode, KMF банк<br>
-                        • Инструменты: SQL (Hive, PostgreSQL, MsSQL), Power BI (DAX, Data Modelling, Power Query)
-                    </p>
+                    <img src="Bigaisha.jpg" alt="Bigaisha Nurberdiyeva" class="team-avatar">
+                    <div class="team-info">
+                        <h3 class="team-name">Bigaisha Nurberdiyeva</h3>
+                        <p class="team-role">Middle BI Engineer</p>
+                        <p class="team-company">KMF банк</p>
+                        <p class="team-experience">4+ года в аналитике данных</p>
+                        <p class="team-details">
+                            • Специализация: BI Engineering, BI Analytics, Аналитика данных, Эд-хок анализ, Автоматизация и визуализация данных для data-driven подхода<br>
+                            • Опыт работы: SmartFinance МФО, Beeline, qazQode, KMF банк<br>
+                            • Инструменты: SQL (Hive, PostgreSQL, MsSQL), Power BI (DAX, Data Modelling, Power Query)
+                        </p>
+                    </div>
                 </div>
                 <div class="team-card">
-                  <img src="images/Alina.jpeg" alt="Alina Baisal" class="team-avatar">
-                  <h3 class="team-name">Alina Baisal</h3>
-                    <p class="team-role">Course Curator</p>
-                    <p class="team-company">Bnect</p>
-                    <p class="team-experience">3+ года в запуске и развитии цифровых продуктов в моделях B2C / B2B / B2G</p>
-                    <p class="team-details"> Специализация:<br>
-                        • Формирование и проверка продуктовых гипотез<br>
-                        • Работа с ключевыми метриками продукта и North Star Metric<br>
-                        • A/B-тестирование и эксперименты<br>
-                        • Анализ пользовательского поведения<br>
-                        <br>
-                        • Опыт работы: YaYa, Freedomsoft, Weglobal, IBEC Systems, Bnect<br>
-                        <br>
-                        • Инструменты и навыки: Amplitude, Яндекс Метрика, A/B-тестирование, когортный анализ, воронки, SQL, TablePlus, Insomnia / Postman
-                    </p>
+                  <img src="Alina.jpeg" alt="Alina Baisal" class="team-avatar">
+                  <div class="team-info">
+                      <h3 class="team-name">Alina Baisal</h3>
+                      <p class="team-role">Course Curator</p>
+                      <p class="team-company">Bnect</p>
+                      <p class="team-experience">3+ года в запуске и развитии цифровых продуктов в моделях B2C / B2B / B2G</p>
+                      <p class="team-details"> Специализация:<br>
+                          • Формирование и проверка продуктовых гипотез<br>
+                          • Работа с ключевыми метриками продукта и North Star Metric<br>
+                          • A/B-тестирование и эксперименты<br>
+                          • Анализ пользовательского поведения<br>
+                          <br>
+                          • Опыт работы: YaYa, Freedomsoft, Weglobal, IBEC Systems, Bnect<br>
+                          <br>
+                          • Инструменты и навыки: Amplitude, Яндекс Метрика, A/B-тестирование, когортный анализ, воронки, SQL, TablePlus, Insomnia / Postman
+                      </p>
+                  </div>
                 </div>
             </div>
         </div>
