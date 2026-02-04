@@ -1913,6 +1913,358 @@
         </div>
     </section>
 
+    <!-- Стили для секции пакетов -->
+<style>
+    .packages-section {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 40px 20px;
+        min-height: 100vh;
+    }
+    
+    .packages-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .packages-title {
+        text-align: center;
+        color: white;
+        font-size: 2.5em;
+        margin-bottom: 50px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    
+    .package-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .package-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    }
+    
+    .package-card.featured {
+        border: 3px solid #ffd700;
+        background: linear-gradient(135deg, #fff 0%, #fffef7 100%);
+    }
+    
+    .package-card.featured::before {
+        content: '⭐ ПОПУЛЯРНЫЙ';
+        position: absolute;
+        top: 20px;
+        right: -35px;
+        background: #ffd700;
+        color: #333;
+        padding: 5px 40px;
+        font-size: 12px;
+        font-weight: bold;
+        transform: rotate(45deg);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .package-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f0f0f0;
+    }
+    
+    .package-name {
+        font-size: 2em;
+        font-weight: bold;
+        color: #667eea;
+        margin-bottom: 10px;
+    }
+    
+    .featured .package-name {
+        color: #d4af37;
+    }
+    
+    .package-price {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #333;
+        margin: 10px 0;
+    }
+    
+    .early-bird-badge {
+        display: inline-block;
+        background: #ff6b6b;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        margin-top: 5px;
+    }
+    
+    .package-features {
+        list-style: none;
+        margin: 20px 0;
+        padding: 0;
+    }
+    
+    .package-features li {
+        padding: 12px 0;
+        padding-left: 30px;
+        position: relative;
+        color: #555;
+        line-height: 1.5;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .package-features li:last-child {
+        border-bottom: none;
+    }
+    
+    .package-features li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #4caf50;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    
+    .feature-highlight {
+        background: #f0f7ff;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-weight: 600;
+        color: #667eea;
+    }
+    
+    .feature-section-title {
+        font-weight: bold;
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .package-access {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 20px 0;
+        text-align: center;
+        font-weight: 600;
+        color: #555;
+    }
+    
+    .package-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-top: 25px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        border: none;
+        cursor: pointer;
+    }
+    
+    .package-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    
+    .featured .package-button {
+        background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+        color: #333;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+    
+    .featured .package-button:hover {
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+    }
+    
+    .download-btn {
+        display: block;
+        max-width: 300px;
+        margin: 30px auto;
+        padding: 15px 30px;
+        background: white;
+        color: #667eea;
+        text-align: center;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        border: 2px solid white;
+    }
+    
+    .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+        background: #f8f9fa;
+    }
+    
+    @media (max-width: 768px) {
+        .packages-title {
+            font-size: 1.8em;
+        }
+        
+        .packages-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<!-- HTML разметка секции пакетов -->
+<section class="packages-section" id="packages-section">
+    <div class="packages-container">
+        <h2 class="packages-title">Выберите свой пакет обучения</h2>
+        
+        <button class="download-btn" onclick="downloadPackagesImage()">📥 Скачать как картинку</button>
+        
+        <div class="packages-grid">
+            <!-- Standard Package -->
+            <div class="package-card">
+                <div class="package-header">
+                    <div class="package-name">Standard</div>
+                    <div class="package-price">150 000 ₸</div>
+                    <span class="early-bird-badge">Early Bird</span>
+                </div>
+                
+                <div class="feature-section-title">Лекции и практика</div>
+                <ul class="package-features">
+                    <li>Лекции четырех спикеров по core темам аналитики</li>
+                    <li>Регулярная практика и теория <span class="feature-highlight">(2 раза в неделю)</span></li>
+                    <li>Закрытое комьюнити участников курса</li>
+                    <li>Гостевые лекции</li>
+                </ul>
+                
+                <div class="feature-section-title">Дополнительно</div>
+                <ul class="package-features">
+                    <li>Домашние задания</li>
+                    <li>Сертификат после окончания курса</li>
+                </ul>
+                
+                <div class="package-access">
+                    Доступ к материалам: <span class="feature-highlight">6 месяцев</span>
+                </div>
+                
+                <a href="#" class="package-button">Забронировать место</a>
+            </div>
+            
+            <!-- Premium Package (Featured) -->
+            <div class="package-card featured">
+                <div class="package-header">
+                    <div class="package-name">Premium</div>
+                    <div class="package-price">250 000 ₸</div>
+                    <span class="early-bird-badge">Early Bird</span>
+                </div>
+                
+                <div class="feature-section-title">Всё из Standard +</div>
+                <ul class="package-features">
+                    <li>Лекции четырех спикеров по core темам аналитики</li>
+                    <li>Регулярная практика и теория <span class="feature-highlight">(2 раза в неделю)</span></li>
+                    <li>Закрытое комьюнити участников курса</li>
+                    <li>Гостевые лекции</li>
+                    <li>Домашние задания</li>
+                    <li>Сертификат после окончания курса</li>
+                </ul>
+                
+                <div class="feature-section-title">Premium бонусы</div>
+                <ul class="package-features">
+                    <li>Блок по карьерному развитию <span class="feature-highlight">(1 неделя)</span></li>
+                    <li>Тех собеседование 1-1 с ментором <span class="feature-highlight">(1 час)</span></li>
+                    <li>Консультация по карьерному росту 1-1 <span class="feature-highlight">(30 мин)</span></li>
+                </ul>
+                
+                <div class="package-access">
+                    Доступ к материалам: <span class="feature-highlight">12 месяцев</span>
+                </div>
+                
+                <a href="#" class="package-button">Забронировать Premium место</a>
+            </div>
+            
+            <!-- VIP Package -->
+            <div class="package-card">
+                <div class="package-header">
+                    <div class="package-name">VIP</div>
+                    <div class="package-price">Индивидуально</div>
+                </div>
+                
+                <div class="feature-section-title">Всё из Premium +</div>
+                <ul class="package-features">
+                    <li>Все преимущества Premium пакета</li>
+                </ul>
+                
+                <div class="feature-section-title">VIP преимущества</div>
+                <ul class="package-features">
+                    <li><strong>Менторская программа:</strong> Созвон 1-1 с Айгерим <span class="feature-highlight">раз в неделю</span></li>
+                </ul>
+                
+                <div class="package-access">
+                    Доступ к материалам: <span class="feature-highlight">Навсегда</span>
+                </div>
+                
+                <a href="https://t.me/aya_nuk" class="package-button">Связаться с Айгерим</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Скрипт для скачивания изображения -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    async function downloadPackagesImage() {
+        const button = document.querySelector('.download-btn');
+        const section = document.getElementById('packages-section');
+        button.style.display = 'none';
+        
+        try {
+            const canvas = await html2canvas(section, {
+                scale: 2,
+                backgroundColor: null,
+                logging: false,
+                windowWidth: 1400,
+                windowHeight: section.scrollHeight
+            });
+            
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = 'pakety-kursa-analitika.png';
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+            });
+        } catch (error) {
+            console.error('Ошибка при создании изображения:', error);
+            alert('Произошла ошибка при скачивании. Попробуйте еще раз.');
+        } finally {
+            button.style.display = 'block';
+        }
+    }
+</script>
+
     <!-- Reviews Section -->
     <section class="section reviews" id="reviews">
         <div class="container">
